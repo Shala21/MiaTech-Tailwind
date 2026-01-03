@@ -109,16 +109,105 @@
     </div>
 
     <!-- Align & Justify -->
-    <div class="h-full flex justify-center items-center">
+    <div class="flex justify-center">
+        <div class="bg-blue-300 p-6 rounded">
+            Centrato orizzontalmente
+        </div>
+    </div>
 
-        <div class="bg-white p-8 rounded shadow text-center">
-            <h1 class="text-xl font-bold mb-2">Centrato!</h1>
-            <p class="text-gray-600">
-                Questo box è centrato verticalmente e orizzontalmente.
-            </p>
+    <div class="flex items-center h-full">
+        <div class="bg-green-300 p-6 rounded">
+            Centrato verticalmente
+        </div>
+    </div>
+
+    <!-- Contenitore -->
+    <h1 class="text-xl font-bold mb-4">Flex Row</h1>
+
+    <div class="flex flex-row gap-4">
+        <div class="flex-1 bg-blue-300 p-6 rounded text-center">Colonna 1</div>
+        <div class="flex-1 bg-green-300 p-6 rounded text-center">Colonna 2</div>
+        <div class="flex-1 bg-red-300 p-6 rounded text-center">Colonna 3</div>
+    </div>
+
+    <h1 class="text-xl font-bold mb-4">Flex Column</h1>
+
+    <div class="flex flex-col gap-4">
+        <div class="bg-blue-300 p-6 rounded text-center">Colonna 1</div>
+        <div class="bg-green-300 p-6 rounded text-center">Colonna 2</div>
+        <div class="bg-red-300 p-6 rounded text-center">Colonna 3</div>
+    </div>
+
+
+    <!-- Gerarchia degli stili -->
+    <div class="space-y-4">
+
+        <!-- Stile base -->
+        <div class="p-4 bg-blue-200 text-black">
+            Stile base
+        </div>
+
+        <!-- Override con altre classi -->
+        <div class="p-4 bg-blue-200 text-black text-red-600">
+            Il testo diventa rosso (override)
+        </div>
+
+        <!-- Responsive override -->
+        <div class="p-4 bg-blue-200 text-black md:text-green-600">
+            Testo nero su mobile, verde da md
+        </div>
+
+        <!-- Hover ha priorità nello stato -->
+        <div class="p-4 bg-blue-200 text-black hover:text-white hover:bg-blue-600 cursor-pointer">
+            Cambia stile al hover
         </div>
 
     </div>
+
+    <!-- STILI RIUTILIZZABILI -->
+     <style>
+      .btn-custom {
+        background-color: #3b82f6;
+        color: white;
+        font-weight: bold;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        transition: all 0.3s;
+      }
+
+      .btn-custom:hover {
+        background-color: #2563eb;
+      }
+
+      .card-custom {
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: 0.25rem;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        transition: all 0.3s;
+      }
+
+      .card-custom:hover {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+  </style>
+</head>
+<body class="p-8 bg-gray-100 space-y-6">
+
+  <!-- Pulsanti -->
+  <div class="space-x-4">
+    <button class="btn-custom">Pulsante 1</button>
+    <button class="btn-custom">Pulsante 2</button>
+  </div>
+
+  <!-- Cards -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="card-custom">Card 1</div>
+    <div class="card-custom">Card 2</div>
+    <div class="card-custom">Card 3</div>
+  </div>
+
+
 </body>
 
 </html>
