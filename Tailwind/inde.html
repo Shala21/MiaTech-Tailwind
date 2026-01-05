@@ -7,6 +7,12 @@
     <title>Document</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
 </head>
 
 <body>
@@ -165,49 +171,290 @@
     </div>
 
     <!-- STILI RIUTILIZZABILI -->
-     <style>
-      .btn-custom {
-        background-color: #3b82f6;
-        color: white;
-        font-weight: bold;
-        padding: 0.5rem 1rem;
-        border-radius: 0.25rem;
-        transition: all 0.3s;
-      }
+    <style>
+        .btn-custom {
+            background-color: #3b82f6;
+            color: white;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            transition: all 0.3s;
+        }
 
-      .btn-custom:hover {
-        background-color: #2563eb;
-      }
+        .btn-custom:hover {
+            background-color: #2563eb;
+        }
 
-      .card-custom {
-        background-color: white;
-        padding: 1.5rem;
-        border-radius: 0.25rem;
-        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-        transition: all 0.3s;
-      }
+        .card-custom {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.25rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
 
-      .card-custom:hover {
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-      }
-  </style>
-</head>
-<body class="p-8 bg-gray-100 space-y-6">
+        .card-custom:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    </head>
 
-  <!-- Pulsanti -->
-  <div class="space-x-4">
-    <button class="btn-custom">Pulsante 1</button>
-    <button class="btn-custom">Pulsante 2</button>
-  </div>
+    <body class="p-8 bg-gray-100 space-y-6">
 
-  <!-- Cards -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    <div class="card-custom">Card 1</div>
-    <div class="card-custom">Card 2</div>
-    <div class="card-custom">Card 3</div>
-  </div>
+        <!-- Pulsanti -->
+        <div class="space-x-4">
+            <button class="btn-custom">Pulsante 1</button>
+            <button class="btn-custom">Pulsante 2</button>
+        </div>
+
+        <!-- Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="card-custom">Card 1</div>
+            <div class="card-custom">Card 2</div>
+            <div class="card-custom">Card 3</div>
+        </div>
 
 
-</body>
+        <!-- COMPONENTI CUSTOM -->
+        <style>
+            @layer components {
+                .card-custom {
+                    @apply bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition;
+                }
+
+                .btn-custom {
+                    @apply bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition;
+                }
+            }
+        </style>
+        </head>
+
+        <body class="bg-gray-100 p-8 space-y-6">
+
+            <!-- Cards custom -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card-custom">
+                    <h2 class="text-xl font-bold mb-2">Card 1</h2>
+                    <p class="text-gray-600 mb-4">Questa è una card personalizzata riutilizzabile.</p>
+                    <button class="btn-custom">Azione</button>
+                </div>
+
+                <div class="card-custom">
+                    <h2 class="text-xl font-bold mb-2">Card 2</h2>
+                    <p class="text-gray-600 mb-4">Stesso componente, stesso stile uniforme.</p>
+                    <button class="btn-custom">Azione</button>
+                </div>
+
+                <div class="card-custom">
+                    <h2 class="text-xl font-bold mb-2">Card 3</h2>
+                    <p class="text-gray-600 mb-4">Puoi creare quante card vuoi senza duplicare classi.</p>
+                    <button class="btn-custom">Azione</button>
+                </div>
+            </div>
+
+            <!-- STILI DISABLED, FOCUS & ACTIVE -->
+            <h1 class="text-xl font-bold mb-4">Form completo con stati interattivi</h1>
+
+            <form class="space-y-4 max-w-md">
+
+                <!-- Input abilitato con focus -->
+                <input type="text" placeholder="Nome"
+                    class="w-full p-3 border border-gray-300 rounded focus:border-blue-500 focus:ring focus:ring-blue-200 focus:outline-none">
+
+                <!-- Input con focus verde -->
+                <input type="email" placeholder="Email"
+                    class="w-full p-3 border border-gray-300 rounded focus:border-green-500 focus:ring focus:ring-green-200 focus:outline-none">
+
+                <!-- Input disabilitato -->
+                <input type="text" placeholder="Campo disabilitato" disabled
+                    class="w-full p-3 border border-gray-300 rounded disabled:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed">
+
+                <!-- Pulsante abilitato con hover e active -->
+                <button type="submit"
+                    class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 active:bg-blue-700 focus:ring focus:ring-blue-200 transition">
+                    Invia
+                </button>
+
+                <!-- Pulsante disabilitato -->
+                <button type="button" disabled
+                    class="bg-gray-400 text-white font-bold py-2 px-4 rounded disabled:cursor-not-allowed disabled:opacity-50">
+                    Non cliccabile
+                </button>
+
+            </form>
+
+
+            <!--  Stili hover -->
+            <h1 class="text-xl font-bold mb-4">Pulsanti con hover</h1>
+
+            <div class="space-x-4">
+
+                <!-- Pulsante blu -->
+                <button class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 transition">
+                    Blu
+                </button>
+
+                <!-- Pulsante verde -->
+                <button class="bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600 transition">
+                    Verde
+                </button>
+
+                <!-- Pulsante rosso -->
+                <button class="bg-red-500 text-white font-bold py-2 px-4 rounded hover:bg-red-600 transition">
+                    Rosso
+                </button>
+
+                <!-- Pulsante con hover testo -->
+                <button
+                    class="bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded hover:text-white hover:bg-gray-700 transition">
+                    Testo cambia
+                </button>
+            </div>
+
+
+            <!-- TOGGLE DARK MODE -->
+            <h1 class="text-2xl font-bold mb-4">Toggle Dark Mode</h1>
+
+            <button type="button" id="toggleDark"
+                class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
+                Cambia Modalità
+            </button>
+
+            <p class="mt-4 text-gray-800 dark:text-gray-200">
+                Questo testo cambia colore tra chiaro e scuro automaticamente.
+            </p>
+
+            <script>
+                    // Initialize theme from localStorage or system preference
+                    (function () {
+                        const storedTheme = localStorage.getItem('theme');
+
+                        if (storedTheme === 'dark') {
+                            document.documentElement.classList.add('dark');
+                        } else if (storedTheme === 'light') {
+                            document.documentElement.classList.remove('dark');
+                        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                            document.documentElement.classList.add('dark');
+                        }
+                    })();
+
+                const btn = document.getElementById('toggleDark');
+                btn.addEventListener('click', () => {
+                    const isDark = document.documentElement.classList.toggle('dark');
+                    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                });
+            </script>
+
+            <!-- Unified Dark Mode Layout -->
+            <header class="bg-blue-200 dark:bg-blue-800 p-6 rounded mb-6">
+                <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Layout Dark Mode</h1>
+            </header>
+
+            <main class="space-y-4">
+
+                <section class="bg-gray-100 dark:bg-gray-700 p-6 rounded shadow">
+                    <h2 class="font-semibold text-lg text-gray-900 dark:text-white">Sezione 1</h2>
+                    <p class="text-gray-700 dark:text-gray-300">Testo che cambia colore automaticamente in base alla
+                        modalità.</p>
+                </section>
+
+                <section class="bg-gray-100 dark:bg-gray-700 p-6 rounded shadow">
+                    <h2 class="font-semibold text-lg text-gray-900 dark:text-white">Sezione 2</h2>
+                    <p class="text-gray-700 dark:text-gray-300">Il colore cambia automaticamente se il sistema è in dark
+                        mode.</p>
+                </section>
+
+                <button type="button"
+                    class="bg-blue-500 dark:bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-600 dark:hover:bg-blue-700 transition">
+                    Pulsante
+                </button>
+
+            </main>
+
+
+            <!-- COLORI DI TESTO -->
+            <h1 class="text-3xl font-bold text-blue-800">Titolo principale</h1>
+
+            <p class="text-gray-700 text-lg">
+                Questo è un paragrafo normale, ma puoi usare
+                <span class="text-amber-500 font-semibold">colori personalizzati</span> per evidenziare.
+            </p>
+
+            <a href="#" class="text-emerald-500 underline hover:text-blue-800">
+                Link con colore accent e hover blu
+            </a>
+
+
+
+            <!-- Sfondo e bordo -->
+            <section class="space-y-4">
+                <h2 class="text-xl font-bold">Sfondo e Bordo</h2>
+                <div class="bg-blue-500 text-white p-4 rounded border-4 border-orange-500">
+                    Box con sfondo blu personalizzato e bordo arancione
+                </div>
+                <div class="bg-green-500 text-white p-4 rounded border-2 border-blue-500">
+                    Box con sfondo verde personalizzato e bordo blu
+                </div>
+            </section>
+
+            <!--Palette custom -->
+            <section class="space-y-4">
+                <h2 class="text-xl font-bold">Palette Custom</h2>
+                <button type="button" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-orange-500 transition">Pulsante
+                    1</button>
+                <button type="button" class="bg-orange-500 text-white py-2 px-4 rounded hover:bg-green-500 transition">Pulsante 2</button>
+                <button type="button" class="bg-green-500 text-white py-2 px-4 rounded hover:bg-blue-500 transition">Pulsante 3</button>
+            </section>
+
+            <!-- Tema personalizzato -->
+            <section class="space-y-4">
+                <h2 class="text-xl font-bold">Tema Personalizzato</h2>
+                <p class="text-blue-600">Testo con colore del tema personalizzato</p>
+                <p class="text-orange-600">Testo con colore secondario del tema</p>
+            </section>
+
+            <!-- Estensione delle dimensioni -->
+            <section class="space-y-4">
+                <h2 class="text-xl font-bold">Estensione delle dimensioni</h2>
+                <div class="bg-white text-gray-800 p-18 rounded shadow">Padding personalizzato 18</div>
+                <div class="bg-white text-gray-800 p-22 rounded shadow">Padding personalizzato 22</div>
+            </section>
+
+            <!-- Modifica della configurazione -->
+            <section class="space-y-4">
+                <h2 class="text-xl font-bold">Modifica Configurazione</h2>
+                <div class="bg-gray-300 text-gray-800 p-6 rounded border-2 border-blue-500">
+                    Box con colore personalizzato dalla configurazione
+                </div>
+            </section>
+
+            <!-- Container e margini -->
+            <section class="space-y-4">
+                <h2 class="text-xl font-bold">Container e Margini</h2>
+                <div class="container mx-auto p-6 bg-white text-gray-800 rounded shadow">
+                    Contenuto centrato nel container con padding e margini
+                </div>
+            </section>
+
+            <!-- Stili di testo -->
+            <section class="space-y-4">
+                <h2 class="text-xl font-bold">Stili di Testo</h2>
+                <h1 class="font-bold text-3xl leading-tight">Titolo Grande</h1>
+                <p class="text-gray-700 text-lg leading-relaxed">Paragrafo con leading rilassato</p>
+                <ul class="list-disc list-inside text-base">
+                    <li>Elemento lista 1</li>
+                    <li>Elemento lista 2</li>
+                </ul>
+            </section>
+
+            <!-- Installazione e primo utilizzo -->
+            <section class="space-y-4">
+                <h2 class="text-xl font-bold">Installazione e Primo Utilizzo</h2>
+                <p class="text-gray-700">Tailwind CSS incluso via CDN, uso di classi base come bg-white, text-black,
+                    p-4, rounded</p>
+                <div class="bg-white text-black p-4 rounded shadow">Box di esempio base</div>
+            </section>
+
+        </body>
 
 </html>
